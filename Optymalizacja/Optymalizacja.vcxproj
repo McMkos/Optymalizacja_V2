@@ -18,6 +18,20 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lab_no.h" />
+    <ClInclude Include="matrix.h" />
+    <ClInclude Include="ode_solver.h" />
+    <ClInclude Include="opt_alg.h" />
+    <ClInclude Include="solution.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="matrix.cpp" />
+    <ClCompile Include="ode_solver.cpp" />
+    <ClCompile Include="opt_alg.cpp" />
+    <ClCompile Include="solution.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

@@ -7,6 +7,8 @@ AGH University of Science and Technology
 
 #include"opt_alg.h"
 
+using namespace std;
+
 int main()
 {
 	try
@@ -30,11 +32,46 @@ int main()
 #elif LAB_NO==1 && LAB_PART==2
 		
 #elif LAB_NO==2 && LAB_PART==1
-		
+		//przyjmujemy 3 ró¿ne wartoœci alpha i robimy dla ka¿dej metodê ekspansji 100 razy
+		//dla ka¿dej wartoœci alpha robimy fibonacciego i lagrange i zapisujemy w macierzy
+		//liczymy wartoœci œrednie dla ró¿nych wartoœci
+		//analiza wyników i wnioski
+		double x0 = -20, d = 1, alpha = 2, epsilon = 1e-5, gamma = 1e-200;
+		int Nmax = 1000;
+		double *p = expansion(x0, d, alpha, Nmax);
+		cout << p[0] << "\t" << p[1] << endl;
+
+		solution::clear_calls();
+
+		solution opt_f = fib(p[0], p[1], epsilon);
+		cout << opt_f << endl;
+
+		solution::clear_calls();
+
+
+		solution opt_l = lag(p[0], p[1], epsilon, gamma, Nmax);
+		cout << opt_l << endl;
+
+		solution::clear_calls();
+
 #elif LAB_NO==2 && LAB_PART==2
-		
+		//tak jak wy¿ej ale wielkoœæ przedzia³u ustawiamy na od -100 do 100
+		double x0 = -20, d = 1, alpha = 2, gamma = 1e-200;
+		int Nmax = 1000;
+		double epsilon = 1e-5;
+		matrix ab_F(1, 1, 200);
+		fib(-100, 100, epsilon, &ab_F);
+		cout << ab_F << endl;
+
+		matrix ab_F2(1, 1, 200);
+		lag(-100, 100, epsilon, gamma, Nmax, &ab_F2,nullptr);
+		cout << ab_F2 << endl;
+
 #elif LAB_NO==2 && LAB_PART==3
-		
+		solution test(0.001);
+		test.fit_fun();
+		cout << test << endl;
+
 #elif LAB_NO==3 && LAB_PART==1
 		
 #elif LAB_NO==3 && LAB_PART==2
